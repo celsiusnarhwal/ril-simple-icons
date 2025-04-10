@@ -8,10 +8,6 @@ on:
         type: number
         description: Simple Icons major version
 
-permissions:
-  contents: read
-  packages: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,7 +41,7 @@ jobs:
         run: npm version --force ${{ steps.generate.outputs.si-version }}
 
       - name: Publish Package
-        run: bunx can-npm-publish && bun publish
+        run: bunx can-npm-publish && bun publish --access public
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
