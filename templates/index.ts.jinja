@@ -1,0 +1,3 @@
+{% for icon in icons %}
+export { default as {{ icon.slug }}, defaultColor as {{ icon.slug }}Hex } from './icons/{{ icon.slug }}'
+{% endfor %}
