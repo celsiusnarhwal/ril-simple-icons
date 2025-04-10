@@ -6,7 +6,7 @@ on:
     inputs:
       simple-icons-version:
         type: number
-        description: The major version of Simple Icons to wrap.
+        description: Simple Icons major version
 
 permissions:
   contents: read
