@@ -295,6 +295,3 @@ cython_debug/
 src/*
 !src/types.ts
 
-uv.lock
-pyproject.toml
-
