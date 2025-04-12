@@ -292,8 +292,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-packages/*
-!packages/*/package.json
-!packages/*/index.ts
+packages/**/index.ts
+packages/**/icons/
 .turbo/
 
