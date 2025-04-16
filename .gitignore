@@ -74,7 +74,6 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
 .env.development.local
 .env.test.local
 .env.production.local
@@ -253,7 +252,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+.envrc
 .venv
 env/
 venv/
@@ -292,7 +291,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-packages/**/index.ts
-packages/**/icons/
-.turbo/
-
+packages/**
+!packages/common/**
+!/packages/common/src/index.ts
