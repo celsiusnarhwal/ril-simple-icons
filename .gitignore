@@ -293,5 +293,6 @@ cython_debug/
 
 packages/**
 !packages/common/**
+!packages/common/src/index.ts
 
 .turbo
