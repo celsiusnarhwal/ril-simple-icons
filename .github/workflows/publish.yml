@@ -38,7 +38,7 @@ jobs:
         run: bun install
 
       - name: Build Packages
-        run: turbo build
+        run: bun turbo build
 
       - name: Publish Packages
         run: bun turbo publish
