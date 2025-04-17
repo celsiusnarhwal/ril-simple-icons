@@ -28,8 +28,14 @@ jobs:
         with:
           registry-url: https://npm.pkg.github.com
 
+      - name: Install RPK
+        run: uv sync
+
+      - name: Generate Workspaces
+        run: uv rpk gen base
+
       - name: Install Dependencies
-        run: uv sync && bun install
+        run: bun install
 
       - name: Publish Packages
         run: uv run rpk gen base all && turbo publish
