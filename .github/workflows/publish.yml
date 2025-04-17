@@ -52,13 +52,13 @@ jobs:
         package: [
           "@celsiusnarhwal/ril-simple-icons",
           "@celsiusnarhwal/ril-bootstrap-icons",
-          "@celsiusnarhwal-ril-material-symbols/100",
-          "@celsiusnarhwal-ril-material-symbols/200",
-          "@celsiusnarhwal-ril-material-symbols/300",
-          "@celsiusnarhwal-ril-material-symbols/400",
-          "@celsiusnarhwal-ril-material-symbols/500",
-          "@celsiusnarhwal-ril-material-symbols/600",
-          "@celsiusnarhwal-ril-material-symbols/700"
+          "@celsiusnarhwal/ril-material-symbols-100",
+          "@celsiusnarhwal/ril-material-symbols-200",
+          "@celsiusnarhwal/ril-material-symbols-300",
+          "@celsiusnarhwal/ril-material-symbols-400",
+          "@celsiusnarhwal/ril-material-symbols-500",
+          "@celsiusnarhwal/ril-material-symbols-600",
+          "@celsiusnarhwal/ril-material-symbols-700"
         ]
 
     steps:
