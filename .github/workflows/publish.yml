@@ -10,6 +10,11 @@ on:
         type: number
         description: Simple Icons major version
 
+
+permissions:
+  contents: read
+  packages: write
+
 jobs:
 #  prepare:
 #    runs-on: ubuntu-latest
