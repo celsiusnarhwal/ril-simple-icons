@@ -79,6 +79,8 @@ jobs:
 
       - name: Set Up Bun
         uses: oven-sh/setup-bun@v2
+        with:
+          registry-url: https://npm.pkg.github.com
 
       - name: Install RPK
         run: uv sync
@@ -95,7 +97,7 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
 
       - name: Publish Packages
-        run: bun turbo publish --filter=${{ matrix.package }} -- -- --registry=https://npm.pkg.github.com
+        run: bun turbo publish --filter=${{ matrix.package }} -- --verbose
         env:
-          NPM_CONFIG_TOKEN: ${{ github.token }}
+          BUN_AUTH_TOKEN: ${{ github.token }}
           SIMPLE_ICONS_VERSION: ${{ inputs.simple-icons-version }}
