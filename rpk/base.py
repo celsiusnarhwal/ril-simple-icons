@@ -37,7 +37,7 @@ def simple(ctx: typer.Context):
 
     package_json = utils.base_package_json()
     package_json["name"] = "@celsiusnarhwal/ril-simple-icons"
-    package_json["scripts"]["generate"] = "rpk gen pkg simple"
+    package_json["scripts"]["generate"] = "uv run rpk gen pkg simple"
     pkg_dir.joinpath("package.json").write_text(json.dumps(package_json, indent=2))
 
 
@@ -55,7 +55,7 @@ def bootstrap(ctx: typer.Context):
 
     package_json = utils.base_package_json()
     package_json["name"] = "@celsiusnarhwal/ril-bootstrap-icons"
-    package_json["scripts"]["generate"] = "rpk gen pkg bootstrap"
+    package_json["scripts"]["generate"] = "uv run rpk gen pkg bootstrap"
     pkg_dir.joinpath("package.json").write_text(json.dumps(package_json, indent=2))
 
 
@@ -81,7 +81,7 @@ def material(ctx: typer.Context, weight: t.Annotated[int, typer.Argument(show_de
 
         package_json = utils.base_package_json()
         package_json["name"] = f"@celsiusnarhwal/ril-material-symbols-{weight}"
-        package_json["scripts"]["generate"] = f"rpk gen pkg material {weight}"
+        package_json["scripts"]["generate"] = f"uv run rpk gen pkg material {weight}"
 
         for style in ["outlined", "rounded", "sharp"]:
             for substyle in [style, f"{style}/filled"]:
