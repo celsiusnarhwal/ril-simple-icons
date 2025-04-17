@@ -37,6 +37,9 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
+      - name: Build Packages
+        run: turbo build
+
       - name: Publish Packages
         run: bun turbo publish
         env:
