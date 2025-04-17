@@ -9,7 +9,6 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 import casefy
-import hachitool
 import semver
 import typer
 from bs4 import BeautifulSoup
@@ -56,7 +55,7 @@ def simple():
     shutil.rmtree(icons_dir, ignore_errors=True)
     icons_dir.mkdir(parents=True, exist_ok=True)
 
-    requested_version = os.getenv("SIMPLE_ICONS_VERSION", "latest")
+    requested_version = os.getenv("SIMPLE_ICONS_VERSION") or "latest"
 
     sorted_versions = sorted(
         [
