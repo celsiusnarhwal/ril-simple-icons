@@ -34,10 +34,13 @@ jobs:
       - name: Generate Workspaces
         run: uv run rpk gen base all
 
+      - name: Install Dependencies
+        run: bun install
+
       - name: Get Package Matrix
         id: matrix
         run: | 
-          "publish=$(turbo publish --dry=json | jq .packages)" >> ${GITHUB_OUTPUT}
+          "publish=$(bun turbo publish --dry=json | jq .packages)" >> ${GITHUB_OUTPUT}
 
   build:
     runs-on: ubuntu-latest
