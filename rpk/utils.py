@@ -26,7 +26,7 @@ def base_package_json():
         "files": ["dist"],
         "scripts": {
             "build": "bun run generate && bun tsup",
-            "publish": "bunx can-npm-publish && npm publish --access public",
+            "publish": "bunx can-npm-publish && bun publish --access public",
         },
         "tsup": {
             "entry": ["src/**/index.ts"],

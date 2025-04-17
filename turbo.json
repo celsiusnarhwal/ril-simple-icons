@@ -2,9 +2,12 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "env": ["SIMPLE_ICONS_VERSION", "NODE_OPTIONS"]
     },
-    "publish": {},
+    "publish": {
+      "env": ["BUN_AUTH_TOKEN"]
+    },
     "dev": {
       "persistent": true,
       "cache": false
