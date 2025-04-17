@@ -40,7 +40,6 @@ def base_package_json():
             "target": "esnext"
         },
         "peerDependencies": {"react": "^17"},
-        "dependencies": {"@celsiusnarhwal/ril-packages-common": "workspace:*"}
     }
 
 

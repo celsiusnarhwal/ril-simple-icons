@@ -33,6 +33,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "turbo": "^2.5.0"
+    "turbo": "^2.5.0",
+    "@celsiusnarhwal/ril-packages-common": "workspace:*"
   }
 }
