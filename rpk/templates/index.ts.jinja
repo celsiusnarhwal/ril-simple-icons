@@ -1,0 +1,7 @@
+{% for icon in icons %}
+{% if si_mode %}
+export { default as {{ icon.slug }}, defaultColor as {{ icon.slug }}Hex } from './{{ icon.relative_path }}'
+{% else %}
+export { default as {{ icon.slug }} } from './{{ icon.relative_path }}'
+{% endif %}
+{% endfor %}

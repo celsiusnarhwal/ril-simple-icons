@@ -1,9 +1,10 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
     "allowImportingTsExtensions": false,
     "noUnusedLocals": false
   },
-  "include": ["src", "types"]
+  "include": [
+    "src"
+  ]
 }

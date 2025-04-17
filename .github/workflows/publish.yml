@@ -1,8 +1,8 @@
 name: Publish Package
 
 on:
-  schedule:
-    - cron: 0 0 * * *
+  #  schedule:
+  #    - cron: 0 0 * * *
 
   workflow_dispatch:
     inputs:
@@ -10,18 +10,10 @@ on:
         type: number
         description: Simple Icons major version
 
-permissions:
-  actions: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set Git Credentials
-        run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email github-actions[bot]@noreply.github.com
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -33,24 +25,13 @@ jobs:
 
       - name: Set Up Bun
         uses: oven-sh/setup-bun@v2
+        with:
+          registry-url: https://npm.pkg.github.com
 
       - name: Install Dependencies
-        run: bun install
+        run: uv sync && bun install
 
-      - name: Generate Source Files
-        id: generate
-        run: uv run generate.py
+      - name: Publish Packages
+        run: uv run rpk gen base all && turbo publish
         env:
           SIMPLE_ICONS_VERSION: ${{ inputs.simple-icons-version }}
-
-      - name: Bump Version
-        run: npm version --force ${{ steps.generate.outputs.si-version }}
-
-      - name: Publish Package
-        run: | 
-          bunx can-npm-publish && bun publish --access public || \
-          gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }} > /dev/null 2>&1
-        env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GH_TOKEN: ${{ github.token }}
-

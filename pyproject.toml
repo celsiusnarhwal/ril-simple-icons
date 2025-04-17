@@ -1,0 +1,30 @@
+[project]
+name = "react-simple-icons"
+version = "0.1.0"
+authors = [
+    { name = "celsius narhwal", email = "hello@celsiusnarhwal.dev" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.3",
+    "casefy>=1.1.0",
+    "hachitool>=1.0.2",
+    "halo>=0.0.31",
+    "hishel>=0.1.2",
+    "httpx>=0.28.1",
+    "javascript>=1!1.2.2",
+    "jinja2>=3.1.6",
+    "merge-args>=0.1.5",
+    "pydantic>=2.11.3",
+    "rich>=14.0.0",
+    "semver>=3.0.4",
+    "sortedcontainers>=2.4.0",
+    "typer>=0.15.2",
+]
+
+[project.scripts]
+rpk = "rpk.app:app"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IconType } from "../types"
+import { IconType } from "@celsiusnarhwal/ril-packages-common"
 
 
 type {{ icon.slug }}Props = React.ComponentPropsWithoutRef<"svg"> & {
@@ -8,12 +8,16 @@ type {{ icon.slug }}Props = React.ComponentPropsWithoutRef<"svg"> & {
     size?: string | number;
 }
 
+{% if si_mode %}
 const defaultColor = "#{{ icon.hex }}"
+{% endif %}
 
 const {{ icon.slug }}: IconType = React.forwardRef<SVGSVGElement, {{ icon.slug }}Props>(function {{ icon.slug }}({ title = "{{ icon.title }}", color = "currentColor", size = 24, ...others }, ref ) {
+    {% if si_mode %}
     if (color === "default") {
         color = defaultColor;
     }
+    {% endif %}
 
     return (
         <svg
@@ -26,9 +30,17 @@ const {{ icon.slug }}: IconType = React.forwardRef<SVGSVGElement, {{ icon.slug }
             {...others}
         >
             <title>{title}</title>
-            <path d="{{ icon.path }}"/>
+            {% if icon.svg_circle %}
+            {{ icon.svg_circle }}
+            {% else %}
+            <path d="{{ icon.svg_path }}"/>
+            {% endif %}
         </svg>
     );
 });
 
+{% if si_mode %}
 export { {{ icon.slug }} as default, defaultColor }
+{% else %}
+export { {{ icon.slug }} as default }
+{% endif %}
