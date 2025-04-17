@@ -32,7 +32,7 @@ jobs:
         run: uv sync
 
       - name: Generate Workspaces
-        run: uv run rpk gen base
+        run: uv run rpk gen base all
 
       - name: Install Dependencies
         run: bun install
