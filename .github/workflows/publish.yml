@@ -32,7 +32,7 @@ jobs:
         run: uv sync
 
       - name: Generate Workspaces
-        run: uv rpk gen base
+        run: uv run rpk gen base
 
       - name: Install Dependencies
         run: bun install
@@ -41,3 +41,4 @@ jobs:
         run: uv run rpk gen base all && turbo publish
         env:
           SIMPLE_ICONS_VERSION: ${{ inputs.simple-icons-version }}
+          NODE_OPTIONS: --max_old_space_size=8192
