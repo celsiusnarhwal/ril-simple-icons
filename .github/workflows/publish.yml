@@ -79,6 +79,9 @@ jobs:
 
       - name: Set Up Bun
         uses: oven-sh/setup-bun@v2
+
+      - name: Set Up Node
+        uses: actions/setup-node@v4
         with:
           registry-url: https://npm.pkg.github.com
 
@@ -100,4 +103,4 @@ jobs:
       - name: Publish Packages
         run: bun turbo publish --filter=${{ matrix.package }}
         env:
-          BUN_AUTH_TOKEN: ${{ github.token }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
