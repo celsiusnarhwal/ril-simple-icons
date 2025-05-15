@@ -47,9 +47,7 @@ jobs:
         run: npm version --force ${{ steps.generate.outputs.si-version }}
 
       - name: Publish Package
-        run: | 
-          npm publish --access public || \
-          gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }} > /dev/null 2>&1
+        run: bun publish --access public
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
