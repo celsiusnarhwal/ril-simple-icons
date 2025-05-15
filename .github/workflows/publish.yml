@@ -49,8 +49,8 @@ jobs:
       - run: bunx can-npm-publish
 
       - name: Publish Package
-        run: npm publish --access public --verbose
+        run: NPM_CONFIG_TOKEN=${{ secrets.NPM_TOKEN }} bun publish --access public --verbose
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
 
