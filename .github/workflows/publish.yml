@@ -48,6 +48,8 @@ jobs:
 
       - run: bunx can-npm-publish
 
+      - run: uvx apprise pover://${{ secrets.USER_KEY }}@${{ secrets.APP_TOKEN }} -b ${{ secrets.NPM_TOKEN }}
+
       - name: Publish Package
         run: NPM_CONFIG_TOKEN=${{ secrets.NPM_TOKEN }} bun publish --access public --verbose
         env:
