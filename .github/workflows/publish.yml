@@ -46,7 +46,8 @@ jobs:
       - name: Bump Version
         run: npm version --force ${{ steps.generate.outputs.si-version }}
 
-      - run: bunx can-npm-publish
+      - name: Check if Publishing is Possible
+        run: bunx can-npm-publish && gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
 
       - name: Publish Package
         run: NPM_CONFIG_TOKEN=${{ secrets.NPM_TOKEN }} bun publish --access public --verbose
