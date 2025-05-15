@@ -51,6 +51,6 @@ jobs:
       - name: Publish Package
         run: bun publish --access public --verbose
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
 
