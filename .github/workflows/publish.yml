@@ -49,8 +49,8 @@ jobs:
       - run: bunx can-npm-publish
 
       - name: Publish Package
-        run: bun publish --access public --verbose || gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
+        run: npm publish --access public --verbose || gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
 
